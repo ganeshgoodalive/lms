@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,300;1,400&family=Montserrat:wght@100&family=Poppins:ital,wght@0,100;1,100&family=Roboto:wght@100;300&family=Zen+Antique&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ganesh LMS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+  <body align="left" style="align:left;">
+
+    <div class="">
+  <div class="row">
+    <div class="col-7" style="margin:0px;padding:0px;">
+      <div align="left" class="col" style="font-family: 'Lato', sans-serif;font-size:30px; color:;padding-left: 20px;">
+        <a href="/">
+      <img align="middle" src="{% static  'img/books.png' %}" width="80" height="80" ></a>
+      Ganesh Library Management System
+
+
+  </div>
+    </div>
+
+      <div align="right" class="col" style="padding-top:20px;">
+<b>
+
+  </b>         </div>
+
+
+  </div>
+</div>
+    <!-- font-family: 'Lato', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Zen Antique', serif; -->
+
+
+
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+           <a class="navbar-brand btn bi bi-house text-white" href="/"> Home</a>
+
+           <a class="navbar-brand btn  bi bi-book  text-white" href="/data"> All Books</a>
+{% if user.is_authenticated %}
+{% if add_permission %}
+            <a class="navbar-brand btn  bi-file-earmark-plus  text-white" href="/form"> Add Book</a>
+{% endif %}
+{% endif %}
+            <a class="navbar-brand btn bi bi-file-earmark-zip  text-white" href="archive_data"> Archived Books</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent" style="width:400px;">
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle bi bi-sort-down-alt  text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size:20px ; color: black;">
+                  Sort by
+                </a>
+                <ul class="dropdown-menu">
+                  <li style="padding-left:20px;">Book Name <br>
+                    <a class=" bi bi-sort-alpha-down" href="/sort_by_bookname" style="font-size:24px;" title="Sort by A to Z"></a> &nbsp&nbsp&nbsp&nbsp<span class="vr"></span>&nbsp&nbsp&nbsp&nbsp
+                    <a class="bi bi-sort-alpha-up-alt" href="/sort_by_bookname_rev" style="font-size:24px;" title="Sort by Z to A"></a>
+                  </li>
+    <li><hr class="dropdown-divider"></li>
+                  <li style="padding-left:20px;">Book Price <br>
+                    <a class=" bi bi-sort-numeric-down" href="/sort_by_price" style="font-size:24px;"></a> &nbsp&nbsp&nbsp&nbsp<span class="vr"></span>&nbsp&nbsp&nbsp&nbsp
+                    <a class="bi bi-sort-numeric-up-alt" href="/sort_by_price_rev" style="font-size:24px;"></a>
+                  </li>
+    <li><hr class="dropdown-divider"></li>
+                <li style="padding-left:20px;">Author Name <br>
+                  <a class=" bi bi-sort-alpha-down" href="/sort_by_authorname" style="font-size:24px;" title="Sort by A to Z"></a> &nbsp&nbsp&nbsp&nbsp<span class="vr"></span>&nbsp&nbsp&nbsp&nbsp
+                  <a class="bi bi-sort-alpha-up-alt" href="/sort_by_authorname_rev" style="font-size:24px;" title="Sort by Z to A"></a>
+
+
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="/data">Default</a></li>
+                </ul>
+              </li>
+
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle bi bi-funnel  text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size:20px ; color: black;">
+              Filter by
+            </a>
+
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="real_myth">Real Myth</a></li>
+              <li><a class="dropdown-item" href="non_fiction">Non-Fiction</a></li>
+              <li><a class="dropdown-item" href="edited">Edited</a></li>
+              <li><a class="dropdown-item" href="reference">Reference</a></li>
+              <li><a class="dropdown-item" href="fiction">Fiction</a></li>
+
+      </ul>
+          </li>
+
+
+        </ul>
+
+
+
+
+          </div>
+
+
+
+          </div>  {% if user.is_authenticated %}
+
+          <div class="">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle bi bi-person-circle  text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size:20px ; color: black;">
+              {{user}}
+            </a>
+
+            <ul class="dropdown-menu">
+              <a class="dropdown-item navbar-brand bi bi-person-circle" href="real_myth"> Profile</a>
+              <a href="{% url 'logout' %}" class="navbar-brand btn bi bi-box-arrow-right"> Logout</a>
+
+
+        </ul>
+          </li>
+        </ul>
+        </div>
+
+
+
+
+            {% else %}
+            <a class="navbar-brand btn bi bi-house bi bi-person-circle  text-white" href="/accounts/login/?next=/form"> <b>Login</b></a>
+            <a class="navbar-brand btn bi bi-house bi bi-journal-check  text-white" href="registerformbased"> <b> Signup </b></a>
+            {% endif %}
+      </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+
+
+<div>
+    <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+          <tr>
+            <th> &nbsp&nbsp&nbsp&nbspBook Name</th>
+            <th>Book Author</th>
+            <th>Price</th>
+            <th>Book Type</th>
+            <th>Publisher</th>
+            <th>Published on</th>
+            {% if user.is_authenticated %}
+            {% if update_permission %}
+            <th>Edit</th>
+            {% endif %}
+            {% endif %}
+            {% if user.is_authenticated %}
+            {% if update_permission %}
+            <th>Archive</th>
+            {% endif %}
+            {% endif %}
+            {% if user.is_authenticated %}
+            {% if delete_permission %}
+            <th>Delete</th>
+            {% endif %}
+            {% endif %}
+
+          </tr>
+        </thead>
+        <tbody>
+          {% for d in datas %}
+
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+
+                <div class="ms-3">
+                  <p class="fw-bold mb-1">{{d.book_name}}</p>
+
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{d.auth_name}}</p>
+
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{d.book_price}}</p>
+            </td>
+            <td>
+                <p class="fw-normal mb-1">  {{d.book_type}}</p>
+
+            </td>
+            <td>
+                <p class="fw-normal mb-1">{{d.publisher}}</p>
+
+            </td>
+            <td>
+                <p class="fw-normal mb-1">{{d.published_on}}</p>
+            </td>
+            {% if user.is_authenticated %}
+            {% if update_permission %}  <td>
+
+              <a class="bi bi-pencil btn btn-warning" href="/update/{{d.id}}" title="Edit"></a>
+
+
+            </td>{% endif %}
+            {% endif %}
+
+            {% if user.is_authenticated %}
+            {% if update_permission %}
+            <td>
+
+                <a class="bi bi-file-earmark-zip-fill btn btn-dark" href="/to_archive/{{d.id}}" title="archive"></a>
+
+            </td>   {% endif %}
+            {% endif %}
+            {% if user.is_authenticated %}
+            {% if delete_permission %}
+            <td>
+
+              <a class="bi bi-trash btn btn-danger" href="delete/{{d.id}}" title="delete"></a>
+
+
+
+            </td>   {% endif %}
+            {% endif %}
+
+
+
+          </tr>
+
+
+{% endfor %}
+        </tbody>
+      </table>
+</div>  <br><br><br><br><br><br><br><br><br><br>
+<nav class="navbar navbar-expand-lg bg-dark" style="">
+  <footer class="container-fluid  text-white"  >
+    © 2022 Ganesh Library Management System
+  </footer>
+</nav>
+</body>
+
+</html>
